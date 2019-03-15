@@ -12,12 +12,17 @@ def sentence_analysis(sent_list):
 	# MAIN: Do my work as machine 3. (I am a result-synthesizer.) Combine the output of machine 4 and machine 5.
 	sentence_analysis_result_list = []
 	for sent in sent_list:
+		sentence_analysis_result = ""
 		# Call machine 4 to do sentimental analysis.
 		sentimental_analysis_result = machine4.sentimental_analysis(sent)
+		if sentimental_analysis_result == 1:
+			sentence_analysis_result += "This sentence is positive. "
+		else:
+			sentence_analysis_result += "This sentence is negative. "
 		# Call machine 5 to do subject analysis.
 		subject_analysis_result = machine5.subject_analysis(sent)
-
-		sentence_analysis_result_list.append((sentimental_analysis_result, subject_analysis_result))
+		sentence_analysis_result += subject_analysis_result
+		sentence_analysis_result_list.append(sentence_analysis_result)
 
 	return sentence_analysis_result_list
 

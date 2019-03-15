@@ -4,9 +4,8 @@ from pymemcache.client import base
 
 
 def subject_analysis(sent):
-	
-	return 12345678
-
+	### TO BE COMPLETED: A SUBJECT ANALYZER	
+	return "TO BE FILLED Result of Subject Analyzer"
 
 server = SimpleXMLRPCServer(("0.0.0.0", 13000))
 

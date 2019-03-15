@@ -9,9 +9,7 @@ Implementation of chains of ML Models linked with RPC with possible real-life ap
 
  * pymemcache
 
- * CMU-pocketsphnix
-
-  * Installation guide can be found [here](https://github.com/watsonbox/homebrew-cmu-sphinx)
+ * CMU-pocketsphnix. Installation guide can be found [here](https://github.com/watsonbox/homebrew-cmu-sphinx)
 
 
 ## Project Structure
