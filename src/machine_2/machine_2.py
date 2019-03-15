@@ -16,6 +16,7 @@ def text_analysis(text):
 
 	# MAIN: Do my work as machine 2. (I am a tokenizer.)
 	# print(s)
+	text = str(text)
 	sent_list = nltk.sent_tokenize(text)
 
 	# Call machine 3 to finish all the rest work and get back the result for machine 1.
