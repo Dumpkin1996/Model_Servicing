@@ -13,7 +13,7 @@ fs, data = wavfile.read('machine_0_test.wav')
 final_result = machine1.audio_analysis(fs, np.ndarray.tolist(data))
 
 # Expected Result:
-# A list of tuples, each is the analysis result for one sentence from the audio file.
-# For example, if the audio consists of ten sentences, the final result should be a list of 10 tuples.
+# A list of strings, each is the analysis result for one sentence from the audio file.
+# For example, if the audio consists of ten sentences, the final result should be a list of 10 strings.
 
 print(final_result)

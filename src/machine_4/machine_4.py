@@ -86,19 +86,3 @@ print("Listening on port 12000...")
 server.register_function(sentimental_analysis, "sentimental_analysis")
 server.serve_forever()
       
-  
-  
-  
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
