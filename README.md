@@ -12,3 +12,8 @@ Implementation of chains of ML Models linked with RPC with possible real-life ap
  * CMU-pocketsphnix
 
   * Installation guide can be found [here](https://github.com/watsonbox/homebrew-cmu-sphinx)
+
+
+## Project Structure
+![alt text](structure.png "BASIC PLAN")
+
