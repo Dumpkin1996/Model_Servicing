@@ -63,18 +63,14 @@ def text_clean(text):
     data=["".join(words) for words in final]
     return data
 
-server = SimpleXMLRPCServer(("0.0.0.0", 11003))
+server = SimpleXMLRPCServer(("0.0.0.0", 14000))
 
-print("Listening on port 11003...")
+print("Listening on port 14000...")
 
 server.register_function(text_clean, "text_clean")
 
 server.serve_forever()
     
-
-
-
-
 #text=[['health','drug','play']]
 #id2word = corpora.Dictionary(text)
 #corpus=[id2word.doc2bow(text[0])]

@@ -8,9 +8,15 @@ import os
 
 machine1 = xmlrpc.client.ServerProxy('http://0.0.0.0:8000')
 
-fs, data = wavfile.read('machine_0_test.wav')
+past_stock_index = [100, 200, 300]
 
-final_result = machine1.audio_analysis(fs, np.ndarray.tolist(data))
+def stock_price_retriever():
+
+
+
+
+
+final_result = machine1.stock_predict(past_stock_index)
 
 # Expected Result:
 # A list of strings, each is the analysis result for one sentence from the audio file.

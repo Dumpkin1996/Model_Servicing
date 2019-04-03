@@ -1,26 +1,33 @@
-from xmlrpc.server import SimpleXMLRPCServer
+import os
 import xmlrpc.client
+import numpy as np
+import speech_recognition as sr
+from xmlrpc.server import SimpleXMLRPCServer
 from scipy.io import wavfile
 from pymemcache.client import base
-import numpy as np
-import os
-
 
 def audio_analysis(fs, audio_data):
 
 	# Define file names
-	local_audio_file_name = "machine_1_test.wav"
+	local_audio_file_name = os.path.join(path.dirname(path.realpath(__file__)), "machine_1_test.wav")
 	local_text_file_name = "machine_1_test.txt"
 
 	# Save the audio file passed up from machine 0 locally.
 	wavfile.write(local_audio_file_name, fs, np.asarray(audio_data, dtype=np.int16))
 
 	# MAIN: Do my work as machine 1. (I am a transcriber.)
-	if not os.path.isfile(local_text_file_name):
-		command = "pocketsphinx_continuous -infile " + local_audio_file_name + " > " + local_text_file_name
-		os.system(command)	
-	with open(local_text_file_name, "r") as text_file:
-		text_data = text_file.read().replace('\n', '')
+	r = sr.Recognizer()
+	with sr.AudioFile(local_audio_file_name) as source:
+		audio = r.record(source)     # read the entire audio file
+	if not os.path.isfile(local_text_file_name):	
+		try:
+		    print("Google Speech Recognition thinks you said " + r.recognize_google(audio))
+		except sr.UnknownValueError:
+		    print("Google Speech Recognition could not understand audio")
+		except sr.RequestError as e:
+		    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+	# with open(local_text_file_name, "r") as text_file:
+	# 	text_data = text_file.read().replace('\n', '')
 
 	# Save my work result at the remote databse to remedy future data corruption
 	memcahced_client = base.Client(('localhost', 11211))
