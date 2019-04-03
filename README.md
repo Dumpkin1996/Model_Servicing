@@ -10,11 +10,13 @@ Implementation of chains of ML Models linked with RPC with possible real-life ap
 
 ### Requiement
 
+ * spacy
  * genism
  * tensorflow
  * pymemcache
  * NLPK with pretrained punkt
- * CMU-pocketsphnix. Installation guide can be found [here](https://github.com/watsonbox/homebrew-cmu-sphinx)
+ * CMU-pocketsphnix: I followed the installation guide [here](https://github.com/Uberi/speech_recognition/blob/master/reference/pocketsphinx.rst)
+
 
 
 <br/><br/>

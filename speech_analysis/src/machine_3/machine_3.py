@@ -16,9 +16,9 @@ def sentence_analysis(sent_list):
 		# Call machine 4 to do sentimental analysis.
 		sentimental_analysis_result = machine4.sentimental_analysis(sent)
 		if sentimental_analysis_result == 1:
-			sentence_analysis_result += "This sentence is positive. "
+			sentence_analysis_result += "This sentence is positive. \n"
 		else:
-			sentence_analysis_result += "This sentence is negative. "
+			sentence_analysis_result += "This sentence is negative. \n"
 		# Call machine 5 to do subject analysis.
 		subject_analysis_result = machine5.subject_analysis(sent)
 		sentence_analysis_result += subject_analysis_result
